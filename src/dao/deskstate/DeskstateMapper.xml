@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.deskstate.DeskstateMapper">
+    <insert id="adddeskstate" parameterType="String">
+        insert into deskstate(deskcode, foodstate) value (#{deskcode},1)
+    </insert>
+    <update id="updatedeskstate">
+        update deskstate
+        set foodstate=#{1}
+        where deskcode = #{0}
+    </update>
+    <delete id="deldeskstateBydeskCode" parameterType="String">
+        delete
+        from deskstate
+        where deskcode = #{deskcode}
+    </delete>
+    <select id="getfoodstateBydeskcode" resultType="int" parameterType="String">
+        select foodstate
+        from deskstate
+        where deskcode = #{deskcode}
+    </select>
+</mapper>

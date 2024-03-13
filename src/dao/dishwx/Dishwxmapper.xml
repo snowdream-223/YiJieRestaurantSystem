@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.dishwx.Dishwxmapper">
+    <select id="getfooddesc" resultType="Dishwx" parameterType="Integer">
+        select *
+        from dishwx
+        where id = #{id}
+    </select>
+    <insert id="addfooddesc">
+        insert into dishwx(id, fooddesc) value (#{1},#{0})
+    </insert>
+    <delete id="delfooddesc" parameterType="int">
+        delete
+        from dishwx
+        where id = #{id};
+
+    </delete>
+    <update id="reset">
+        ALTER TABLE dishwx AUTO_INCREMENT =1
+    </update>
+</mapper>
